@@ -78,3 +78,15 @@ describe('operatorClick.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(10)
   })
 })
+
+describe('clearClick.vue', () => {  
+  it('clears the screen but not the memory', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('4');
+    wrapper.vm.operatorClick('*');
+    wrapper.vm.numberClick('5');
+    wrapper.vm.operatorClick('=');
+    wrapper.vm.clearClick();
+    expect(wrapper.vm.previousTotal).to.equal(20)
+  })
+})
