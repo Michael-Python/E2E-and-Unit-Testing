@@ -11,5 +11,10 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '2')
   })
 
+  it('should have working number buttons', () => {
+    cy.get('#number2').click();
+    cy.get('.display').should('contain', '2')
+  })
+
   
 })

@@ -37,3 +37,44 @@ describe('multiply.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(15)
   })
 })
+
+describe('divide.vue', () => {  
+  it('divides two numbers', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal =21
+    wrapper.vm.divide('7');
+    expect(wrapper.vm.runningTotal).to.equal(3)
+  })
+})
+
+describe('numberClick.vue', () => {  
+  it('extends entered number', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('4');
+    wrapper.vm.numberClick('5');
+    expect(wrapper.vm.runningTotal).to.equal(45)
+  })
+})
+
+describe('numberClick.vue', () => {  
+  it('extends entered number', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('4');
+    wrapper.vm.numberClick('5');
+    expect(wrapper.vm.runningTotal).to.equal(45)
+  })
+})
+
+describe('operatorClick.vue', () => {  
+  it('chains multiple operations', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('4');
+    wrapper.vm.operatorClick('*');
+    wrapper.vm.numberClick('5');
+    wrapper.vm.operatorClick('=');
+    wrapper.vm.operatorClick('/');
+    wrapper.vm.numberClick('2');
+    wrapper.vm.operatorClick('=');
+    expect(wrapper.vm.runningTotal).to.equal(10)
+  })
+})
