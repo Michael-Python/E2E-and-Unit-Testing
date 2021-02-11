@@ -68,14 +68,14 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '0.14285714285714285')
   })
 
-  it('should return E, or infinity for division by 0', () => {
+  it('should not allow for division by 0', () => {
     cy.get('#number1').click();
     cy.get('#operator_divide').click();
     cy.get('#number0').click();
     cy.get('#operator_equals').click();
     // Not sure if this test is sufficient, it is the length of the allowed display
     // I think infinity is great for explaining what the value is. Much more interesting than E, or undefined.
-    cy.get('.display').should('contain', 'Infinity')
+    cy.get('.display').should('contain', 'Infinity - bad')
   })
 
 })

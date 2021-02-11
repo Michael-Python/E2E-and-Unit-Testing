@@ -90,3 +90,14 @@ describe('clearClick.vue', () => {
     expect(wrapper.vm.previousTotal).to.equal(20)
   })
 })
+
+describe('divideByZero.vue', () => {  
+  it('clears the screen but not the memory', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('1');
+    wrapper.vm.operatorClick('/');
+    wrapper.vm.numberClick('0');
+    wrapper.vm.operatorClick('=');
+    expect(wrapper.vm.previousTotal).to.equal('Infinity - bad')
+  })
+})
